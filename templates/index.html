@@ -12,11 +12,11 @@
     <ul>
         {% for todo in todos %}
             <li>
-                <input type="checkbox" name="done"  {% if todo['done']%} checked {%endif%} disabled onchange="this.form.submit()">
-                <span {%if todo['done'] %} style="text-decoration: line-through" {%endif%}>{{ todo['task'] }}</span>
-                <a href="{{ url_for('edit', index=loop.index0) }}">Edit</a>
-                <a href="{{ url_for('check', index=loop.index0) }}">Check</a>
-                <a href="{{ url_for('delete', index=loop.index0) }}">Delete</a>
+                <input type="checkbox" name="done"  {% if todo.complete%} checked {%endif%} disabled onchange="this.form.submit()">
+                <span {%if todo.complete %} style="text-decoration: line-through" {%endif%}>{{ todo.title }}</span>
+                <a href="/edit/{{ todo.id }}">Edit</a>
+                <a href="/check/{{ todo.id }}">Check</a>
+                <a href="/delete/{{ todo.id }}">Delete</a>
             </li>
         {% endfor %}
     </ul>
