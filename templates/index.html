@@ -5,9 +5,11 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
     <title>Todo app</title>
 </head>
 <body>
+<div id="container>">
     <h1>Todo List</h1>
     <ul>
         {% for todo in todos %}
@@ -20,9 +22,12 @@
             </li>
         {% endfor %}
     </ul>
+    </div>
+<div id="form">
         <form action="{{ url_for('add') }} " method="post">
             <input type="text" name="todo">
             <button type="submit">Add Todo</button>
         </form>
+    </div>
 </body>
 </html>
