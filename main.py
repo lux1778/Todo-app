@@ -22,7 +22,7 @@ def edit(index):
     todo = todos[index]
     if request.method == "POST":
         todo['task'] == request.form["todo"]
-        return redirect((url_for("index")))
+        return redirect(url_for("index"))
     else:
         return render_template("edit.html", todo=todo, index=index)
 
@@ -38,4 +38,4 @@ def delete(index):
     return redirect(url_for("index"))
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=True, host="0.0.0.0")
